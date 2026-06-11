@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e5e7eb;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background: #111111;
+    border-right: 1px solid #1f1f1f;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.brand {
+    margin-bottom: 32px;
+    padding: 0 6px;
+}
+
+.brand small {
+    background: #2563eb;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.brand h3 {
+    font-size: 13px;
+    margin: 14px 0 0;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    color: #9ca3af;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.15s ease;
+}
+
+.sidebar a:hover {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+.sidebar a.active {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    border-top: 1px solid #1f1f1f;
+    padding-top: 16px;
+}
+
+.main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 40px;
+}
+
+.page-title h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.page-title p {
+    margin-top: 6px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 28px 0;
+}
+
+.card {
+    background: #141414;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #1f1f1f;
+    transition: border-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: #333333;
+}
+
+.card h3 {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    margin: 14px 0 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.panel {
+    background: #141414;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #1f1f1f;
+    margin-top: 24px;
+    overflow-x: auto;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 10px 14px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #e5e7eb;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+input:focus, select:focus {
+    border-color: #2563eb;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.delete {
+    background: #dc2626;
+}
+
+.delete:hover {
+    background: #b91c1c;
+}
+
+.success {
+    background: #064e3b;
+    color: #6ee7b7;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #065f46;
+    font-size: 14px;
+}
+
+.error {
+    background: #450a0a;
+    color: #fca5a5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #7f1d1d;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th, td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #1f1f1f;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #d1d5db;
+}
+
+.status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.available, .confirmed, .paid, .completed {
+    background: #064e3b;
+    color: #6ee7b7;
+}
+
+.booked, .pending, .processing {
+    background: #451a03;
+    color: #fbbf24;
+}
+
+.cancelled, .failed, .maintenance {
+    background: #450a0a;
+    color: #fca5a5;
+}
+
+.checked_in {
+    background: #1e3a5f;
+    color: #93c5fd;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .admin-wrapper {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

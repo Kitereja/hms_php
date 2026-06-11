@@ -1,0 +1,39 @@
+/* Deluxe Room Page — gold & nature theme */
+
+body { background: #fff; }
+
+.rooms-header {
+  background: linear-gradient(135deg, #1a3a2a, #2d6a4f);
+  color: white;
+}
+
+.room-type-label { border-left-color: #2d6a4f; }
+.room-type-label h2 { color: #0f172a; }
+.room-type-label p { color: #888; }
+
+.room-type-section { background: #f4f9f6; }
+
+.back-link {
+  background: #e8f4ee;
+  color: #1a3a2a;
+}
+.back-link:hover { background: #1a3a2a; color: white; }
+
+.btn-book-overlay {
+  background: #2d6a4f;
+  color: white;
+}
+.btn-book-overlay:hover { background: #c8a96a; color: #0f172a; }
+
+.price-tag {
+  background: #1a3a2a;
+  color: #c8a96a;
+}
+
+.btn-book-card {
+  background: #2d6a4f;
+  color: white;
+}
+.btn-book-card:hover { background: #c8a96a; color: #0f172a; }
+
+.modal-room-name { color: #2d6a4f; }
