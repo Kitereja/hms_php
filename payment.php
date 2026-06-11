@@ -102,6 +102,7 @@ $total_amount = $nights * $booking['price_per_night'];
         <label class="pay-option"><input type="radio" name="method" value="nmb" onchange="selectMethod(this)"><img class="icon" src="images/payment/nmb.png" alt="NMB"><div><div class="name">NMB Mkononi</div><div class="desc">NMB Bank Tanzania</div></div></label>
         <label class="pay-option"><input type="radio" name="method" value="crdb" onchange="selectMethod(this)"><img class="icon" src="images/payment/crdb.svg" alt="CRDB"><div><div class="name">CRDB SimBanking</div><div class="desc">CRDB Bank Tanzania</div></div></label>
         <label class="pay-option"><input type="radio" name="method" value="card" onchange="selectMethod(this)"><span class="icon">💳</span><div><div class="name">Card Payment</div><div class="desc">Visa / Mastercard</div></div></label>
+        <label class="pay-option"><input type="radio" name="method" value="paypal" onchange="selectMethod(this)"><span class="icon" style="font-size:18px;font-weight:bold;color:#003087;">Pay</span><div><div class="name">PayPal</div><div class="desc">International payment</div></div></label>
         <label class="pay-option"><input type="radio" name="method" value="cash" onchange="selectMethod(this)"><span class="icon">💵</span><div><div class="name">Cash</div><div class="desc">Pay at reception</div></div></label>
       </div>
       <button class="btn-login" id="btnProceed" onclick="proceedPayment()" disabled>Proceed to Pay</button>
@@ -136,6 +137,7 @@ const methodNames = {
   nmb: { name: 'NMB Mkononi', icon: 'images/payment/nmb.png', ussd: '*150*66#', pinLen: 4 },
   crdb: { name: 'CRDB SimBanking', icon: 'images/payment/crdb.svg', ussd: '*150*88#', pinLen: 4 },
   card: { name: 'Card', icon: '💳', ussd: '', pinLen: 3 },
+  paypal: { name: 'PayPal', icon: '💳', ussd: '', pinLen: 0 },
   cash: { name: 'Cash', icon: '💵', ussd: '', pinLen: 0 },
 };
 
@@ -161,6 +163,20 @@ function proceedPayment() {
   if (selectedMethod === 'cash') {
     showResult(true, 'Booking confirmed — pay TSH ' + Number(amount).toLocaleString() + ' at reception upon arrival.', 'CASH-' + Date.now());
     savePayment('cash', 'CASH-' + Date.now());
+    return;
+  }
+
+  if (selectedMethod === 'paypal') {
+    pinSection.innerHTML = `
+      <div class="sim-pin" style="text-align:center;">
+        <div style="font-size:28px;font-weight:bold;color:#003087;margin-bottom:4px;">PayPal</div>
+        <p style="font-size:13px;color:#555;">Simulated PayPal Checkout</p>
+        <p style="font-size:18px;font-weight:bold;margin:12px 0;">TSH ${Number(amount).toLocaleString()}</p>
+        <div class="form-group"><label>PayPal Email</label><input type="email" id="paypalEmail" placeholder="buyer@example.com" value="buyer@paypal.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="paypalPass" placeholder="••••••••" value="password123"></div>
+        <button class="btn-login" onclick="simulateProcessing()" style="background:#003087;">Pay with PayPal</button>
+        <p style="font-size:11px;color:#888;margin-top:8px;">Sandbox simulation — no real charge</p>
+      </div>`;
     return;
   }
 
