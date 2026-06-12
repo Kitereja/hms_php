@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php?error=Please login first to view rooms');
+    exit();
+}
 include 'db_connect.php';
 
 $room_types = [
@@ -7,21 +12,21 @@ $room_types = [
     'description' => 'Cozy, clean and affordable — everything you need for a comfortable stay.',
     'buttonClass' => 'standard-btn',
     'link' => 'standard-room.php',
-    'image' => 'standard1.png',
+    'image' => 'images/standard1.png',
   ],
   'Deluxe' => [
     'title' => 'Deluxe Rooms',
     'description' => 'Premium comfort with stunning views, elegant design and exclusive amenities.',
     'buttonClass' => 'deluxe-btn',
     'link' => 'deluxe-room.php',
-    'image' => 'deluxe1.png',
+    'image' => 'images/deluxe1.png',
   ],
   'Suite' => [
     'title' => 'Executive Suites',
     'description' => 'The pinnacle of luxury — spacious suites with butler service and panoramic views.',
     'buttonClass' => 'suite-btn',
     'link' => 'executive-suite.php',
-    'image' => 'suite2.png',
+    'image' => 'images/suite2.png',
   ],
 ];
 

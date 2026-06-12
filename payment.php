@@ -283,7 +283,8 @@ function showResult(success, msg, ref) {
 
 function pushPayment() {
   customerPhone = document.getElementById('pushPhone').value.trim();
-  if (!customerPhone) { alert('Please enter your phone number'); return; }
+  var digits = customerPhone.replace(/[^0-9]/g, '');
+  if (digits.length !== 10) { alert('Please enter a valid 10-digit phone number (e.g. 0712345678)'); return; }
   var meta = methodNames[selectedMethod];
   document.getElementById('pinSection').innerHTML = `
     <div class="sim-pin">

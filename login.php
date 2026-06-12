@@ -55,6 +55,7 @@
           <input type="password" name="password" placeholder="Enter your password" required>
         </div>
         <button class="btn-login" type="submit">Login</button>
+        <p style="text-align:center;margin-top:10px;"><a href="forgot_password.php" style="color:#c8a96a;font-size:13px;text-decoration:none;font-family:Arial,sans-serif;">Forgot Password?</a></p>
       </form>
       <p class="form-note">Don't have an account? <a href="#" onclick="showTab('signup', document.querySelectorAll('.tab')[1])">Sign up</a></p>
     </div>

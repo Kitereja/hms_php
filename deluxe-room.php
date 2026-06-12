@@ -126,39 +126,6 @@ function getRoomImage($image, $room_type) {
                             alt="<?php echo htmlspecialchars($room['room_name']); ?>"
                         >
 
-                        <div class="img-overlay">
-
-                            <?php if ($room['status'] == 'available') : ?>
-
-    <button
-        type="button"
-        class="btn-book-overlay"
-        onclick="openModal(
-            '<?php echo $room['room_id']; ?>',
-            '<?php echo htmlspecialchars($room['room_name'], ENT_QUOTES); ?>',
-            '<?php echo $room['price']; ?>'
-        )">
-
-        Book Now
-
-    </button>
-
-<?php else : ?>
-
-    <button
-        type="button"
-        class="btn-book-overlay"
-        disabled
-        style="background: gray; cursor: not-allowed;">
-
-        Booked
-
-    </button>
-
-<?php endif; ?>
-
-                        </div>
-
                         <span class="price-tag">
 
                             From TSH <?php echo number_format($room['price'], 0); ?>/night
@@ -348,10 +315,6 @@ function getRoomImage($image, $room_type) {
                     <option>1 Guest</option>
 
                     <option>2 Guests</option>
-
-                    <option>3 Guests</option>
-
-                    <option>4+ Guests</option>
 
                 </select>
 
