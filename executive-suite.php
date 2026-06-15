@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php?error=Please login first to view rooms');
+    exit();
+}
 include 'db_connect.php';
 
 $room_type = 'Suite';
@@ -42,10 +47,10 @@ function getRoomImage($image, $room_type) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>if (!sessionStorage.getItem('hms_logged_in')) { window.location.href = 'logout.php'; }</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Executive Suites - Hotel De Mag</title>
-
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/rooms-shared.css">
     <link rel="stylesheet" href="css/executive-suite.css">

@@ -137,7 +137,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   })
   .then(function(r) { return r.json(); })
   .then(function(data) {
-    if (data.success) { alert('Login successful'); window.location.href = data.redirect; }
+    if (data.success) { sessionStorage.setItem('hms_logged_in', '1'); alert('Login successful'); window.location.href = data.redirect; }
     else { alert(data.error); }
   })
   .catch(function() { alert('Network error. Please try again.'); });

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php?error=Please login first to view rooms');
+    exit();
+}
 include 'db_connect.php';
 
 $room_type = 'Deluxe';
@@ -47,12 +52,12 @@ function getRoomImage($image, $room_type) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deluxe Rooms - Hotel De Mag</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/rooms-shared.css">
-    <link rel="stylesheet" href="css/deluxe-room.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deluxe Rooms - Hotel De Mag</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/room-detail.css">
+  <script>if (!sessionStorage.getItem('hms_logged_in')) { window.location.href = 'logout.php'; }</script>
 </head>
 <body>
 
