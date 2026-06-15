@@ -222,13 +222,19 @@ if ($action == 'delete_booking') {
 if ($action == 'delete_customer') {
     $user_id = $_POST['user_id'];
 
-    $sql = "DELETE FROM users WHERE user_id='$user_id' AND role='guest'";
-
-    if (mysqli_query($conn, $sql)) {
-        header('Location: admin.php?msg=Customer deleted successfully#customers');
-    } else {
-        header('Location: admin.php?error=Failed to delete customer#customers');
+    $bookings = mysqli_query($conn, "SELECT * FROM bookings WHERE user_id='$user_id'");
+    while ($b = mysqli_fetch_assoc($bookings)) {
+        if (!empty($b['room_id'])) {
+            mysqli_query($conn, "UPDATE rooms SET status='available' WHERE room_id='{$b['room_id']}'");
+        } elseif (!empty($b['room_name'])) {
+            mysqli_query($conn, "UPDATE rooms SET status='available' WHERE room_name='{$b['room_name']}'");
+        }
+        mysqli_query($conn, "DELETE FROM payments WHERE booking_id='{$b['booking_id']}'");
     }
+    mysqli_query($conn, "DELETE FROM bookings WHERE user_id='$user_id'");
+    mysqli_query($conn, "DELETE FROM users WHERE user_id='$user_id' AND role='guest'");
+
+    header('Location: admin.php?msg=Customer and all their bookings deleted#customers');
     exit();
 }
 
