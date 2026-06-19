@@ -6,6 +6,12 @@
   <title>Login - Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
+  <style>
+    .pwd-wrapper { position:relative; display:flex; align-items:center; }
+    .pwd-wrapper input { width:100%; padding-right:40px !important; }
+    .pwd-toggle { position:absolute; right:10px; cursor:pointer; font-size:18px; user-select:none; opacity:0.5; transition:0.2s; }
+    .pwd-toggle:hover { opacity:1; }
+  </style>
 </head>
 <body>
 
@@ -52,7 +58,10 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password" placeholder="Enter your password" required>
+          <div class="pwd-wrapper">
+            <input type="password" name="password" id="loginPassword" placeholder="Enter your password" required>
+            <span class="pwd-toggle" onclick="togglePwd('loginPassword', this)">👁</span>
+          </div>
         </div>
         <button class="btn-login" type="submit">Login</button>
         <p style="text-align:center;margin-top:10px;"><a href="forgot_password.php" style="color:#c8a96a;font-size:13px;text-decoration:none;font-family:Arial,sans-serif;">Forgot Password?</a></p>
@@ -73,7 +82,10 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" name="password" id="signupPassword" placeholder="Create a password" required oninput="validatePassword()">
+          <div class="pwd-wrapper">
+            <input type="password" name="password" id="signupPassword" placeholder="Create a password" required oninput="validatePassword()">
+            <span class="pwd-toggle" onclick="togglePwd('signupPassword', this)">👁</span>
+          </div>
           <div id="passwordReqs" style="font-size:12px;margin-top:6px;color:#888;font-family:Arial,sans-serif;">
             <div id="req-upper">⬜ Uppercase letter</div>
             <div id="req-lower">⬜ Lowercase letter</div>
@@ -83,7 +95,10 @@
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
-          <input type="password" name="confirm_password" placeholder="Repeat password" required>
+          <div class="pwd-wrapper">
+            <input type="password" name="confirm_password" id="confirmPassword" placeholder="Repeat password" required>
+            <span class="pwd-toggle" onclick="togglePwd('confirmPassword', this)">👁</span>
+          </div>
         </div>
         <button class="btn-login" type="submit" id="signupBtn">Create Account</button>
       </form>
@@ -99,6 +114,12 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+}
+
+function togglePwd(id, el) {
+  var input = document.getElementById(id);
+  if (input.type === 'password') { input.type = 'text'; el.textContent = '👁‍🗨'; }
+  else { input.type = 'password'; el.textContent = '👁'; }
 }
 
 function validatePassword() {
