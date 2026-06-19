@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO bookings 
             (guest_name, guest_email, room_name, price_per_night, check_in, check_out, guests, booking_status, room_id)
             VALUES 
-            ('$guest_name', '$guest_email', '$room_name', '$price_per_night', '$check_in', '$check_out', '$guests', 'payment_failed', $room_id)";
+            ('$guest_name', '$guest_email', '$room_name', '$price_per_night', '$check_in', '$check_out', '$guests', 'pending', $room_id)";
 
     if (mysqli_query($conn, $sql)) {
         $booking_id = mysqli_insert_id($conn);

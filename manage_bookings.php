@@ -44,14 +44,15 @@ $bookings = mysqli_query($conn, "SELECT * FROM bookings ORDER BY booking_id DESC
                                 <option value="checked_in" <?php if($booking['booking_status']=='checked_in') echo 'selected'; ?>>Checked In</option>
                                 <option value="completed" <?php if($booking['booking_status']=='completed') echo 'selected'; ?>>Completed</option>
                                 <option value="cancelled" <?php if($booking['booking_status']=='cancelled') echo 'selected'; ?>>Cancelled</option>
-                                <option value="payment_failed" <?php if($booking['booking_status']=='payment_failed') echo 'selected'; ?>>Payment Failed</option>
+                                <option value="pending" <?php if($booking['booking_status']=='pending') echo 'selected'; ?>>Pending</option>
+<option value="payment_failed" <?php if($booking['booking_status']=='payment_failed') echo 'selected'; ?>>Payment Failed</option>
                             </select>
                         </td>
                         <td>
                             <button name="action" value="update_booking">Update</button>
                             <button class="delete" name="action" value="delete_booking" onclick="return confirm('Delete this booking?')">Delete</button>
                     </form>
-                            <?php if ($booking['booking_status'] == 'payment_failed') { ?>
+                            <?php if ($booking['booking_status'] == 'pending') { ?>
                             <form action="admin_process.php" method="POST" style="display:inline;">
                                 <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
                                 <button name="action" value="confirm_payment" style="background:#2563eb;color:white;" onclick="return confirm('Confirm payment for this booking? Room will be marked as booked.')">Confirm Payment</button>

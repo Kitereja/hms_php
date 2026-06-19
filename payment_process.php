@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($conn, $sql)) {
 
-        mysqli_query($conn, "UPDATE bookings SET booking_status='payment_failed' WHERE booking_id='$booking_id'");
+        mysqli_query($conn, "UPDATE bookings SET booking_status='pending' WHERE booking_id='$booking_id'");
 
         header('Location: payment.php?booking_id=' . $booking_id . '&success=1');
         exit();
