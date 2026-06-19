@@ -125,10 +125,9 @@ $already_paid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM payments W
 
     <div id="step3" style="display:none;">
       <div style="text-align:center;padding:20px 0;">
-        <div style="font-size:50px;color:#f1c40f;">&#9888;</div>
-        <div class="result-msg" style="font-size:16px;font-weight:bold;margin:8px 0;">Payment Submitted</div>
-        <p style="font-size:13px;color:#888;font-family:Arial,sans-serif;">Your payment is pending admin confirmation. You'll be notified once confirmed.</p>
-        <a href="index.php" class="btn-login" style="display:block;text-align:center;text-decoration:none;margin-top:16px;">Back Home</a>
+        <div style="font-size:50px;color:#2a7;">&#10003;</div>
+        <div class="result-msg" style="font-size:16px;font-weight:bold;margin:8px 0;">Payment Confirmed!</div>
+        <p style="font-size:13px;color:#888;font-family:Arial,sans-serif;">Your booking is confirmed. Redirecting to receipt...</p>
       </div>
     </div>
   </div>

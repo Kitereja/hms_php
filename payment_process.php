@@ -11,13 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO payments 
             (booking_id, amount, payment_method, transaction_ref, payment_status)
             VALUES 
-            ('$booking_id', '$amount', '$payment_method', '$transaction_ref', 'pending')";
+            ('$booking_id', '$amount', '$payment_method', '$transaction_ref', 'completed')";
 
     if (mysqli_query($conn, $sql)) {
 
-        mysqli_query($conn, "UPDATE bookings SET booking_status='pending' WHERE booking_id='$booking_id'");
+        mysqli_query($conn, "UPDATE bookings SET booking_status='confirmed' WHERE booking_id='$booking_id'");
 
-        header('Location: payment.php?booking_id=' . $booking_id . '&success=1');
+        $bq = mysqli_query($conn, "SELECT room_id FROM bookings WHERE booking_id='$booking_id'");
+        $b = mysqli_fetch_assoc($bq);
+        if (!empty($b['room_id'])) {
+            mysqli_query($conn, "UPDATE rooms SET status='booked' WHERE room_id='{$b['room_id']}'");
+        }
+
+        header('Location: payment_success.php?booking_id=' . $booking_id);
         exit();
 
     } else {
