@@ -6,6 +6,7 @@
   <title>Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -55,25 +56,25 @@
   <div class="features-grid">
 
     <div class="feature-card">
-      <div class="feature-icon">🛏️</div>
+      <div class="feature-icon"><i class="fas fa-bed"></i></div>
       <h3>Luxury Rooms</h3>
       <p>Elegantly designed rooms with premium furnishings and modern amenities.</p>
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">🍳</div>
+      <div class="feature-icon"><i class="fas fa-egg"></i></div>
       <h3>Free Breakfast</h3>
       <p>Start your day right with our complimentary full breakfast every morning.</p>
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">📶</div>
+      <div class="feature-icon"><i class="fas fa-wifi"></i></div>
       <h3>Free WiFi</h3>
       <p>High-speed internet throughout the hotel — stay connected always.</p>
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">🔔</div>
+      <div class="feature-icon"><i class="fas fa-bell"></i></div>
       <h3>24/7 Service</h3>
       <p>Our staff is available around the clock to meet your every need.</p>
     </div>
@@ -130,12 +131,12 @@
 
   <div class="services-icons">
 
-    <div class="svc">🏊 Swimming Pool</div>
-    <div class="svc">💆 Spa & Wellness</div>
-    <div class="svc">🏋️ Fitness Gym</div>
-    <div class="svc">🍽️ Restaurant</div>
-    <div class="svc">🚗 Free Parking</div>
-    <div class="svc">✈️ Airport Shuttle</div>
+    <div class="svc"><i class="fas fa-swimmer"></i> Swimming Pool</div>
+    <div class="svc"><i class="fas fa-spa"></i> Spa & Wellness</div>
+    <div class="svc"><i class="fas fa-dumbbell"></i> Fitness Gym</div>
+    <div class="svc"><i class="fas fa-utensils"></i> Restaurant</div>
+    <div class="svc"><i class="fas fa-car"></i> Free Parking</div>
+    <div class="svc"><i class="fas fa-plane"></i> Airport Shuttle</div>
 
   </div>
 
@@ -208,7 +209,7 @@
   <h2>Get In Touch</h2>
 
   <p>
-    📧 hoteldemag@gmail.com &nbsp;|&nbsp; 📞 +255 764 966 568
+    <i class="fas fa-envelope"></i> hoteldemag@gmail.com &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +255 764 966 568
   </p>
 
   <a href="contact.php" class="btn-gold" style="margin-top:20px; display:inline-block;">
