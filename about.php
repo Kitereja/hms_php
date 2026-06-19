@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Hotel De Mag</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/about.css">
 </head>
@@ -35,7 +36,7 @@
 <section class="about-container">
 
   <div class="about-card">
-    <div class="card-icon">🏨</div>
+    <div class="card-icon"><i class="fas fa-hotel"></i></div>
     <h2>Who We Are</h2>
     <p>
       Hotel De Mag is a premium hotel offering world-class hospitality,
@@ -45,7 +46,7 @@
   </div>
 
   <div class="about-card">
-    <div class="card-icon">🎯</div>
+    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
     <h2>Our Mission</h2>
     <p>
       To provide guests with comfort, relaxation, and luxury at affordable
@@ -55,7 +56,7 @@
   </div>
 
   <div class="about-card">
-    <div class="card-icon">✅</div>
+    <div class="card-icon"><i class="fas fa-check-circle"></i></div>
     <h2>Why Choose Us</h2>
     <p>
       ✔ Luxury rooms &amp; suites<br>
@@ -93,22 +94,22 @@
   <h2>Our Values</h2>
   <div class="values-grid">
     <div class="value-item">
-      <span>🤝</span>
+      <span><i class="fas fa-handshake"></i></span>
       <h4>Integrity</h4>
       <p>We are honest and transparent with every guest, always.</p>
     </div>
     <div class="value-item">
-      <span>💎</span>
+      <span><i class="fas fa-gem"></i></span>
       <h4>Excellence</h4>
       <p>We hold ourselves to the highest standards in everything we do.</p>
     </div>
     <div class="value-item">
-      <span>❤️</span>
+      <span><i class="fas fa-heart"></i></span>
       <h4>Hospitality</h4>
       <p>Warm, genuine care for every single guest who walks through our doors.</p>
     </div>
     <div class="value-item">
-      <span>🌍</span>
+      <span><i class="fas fa-globe-africa"></i></span>
       <h4>Community</h4>
       <p>Proud to serve and invest in our local Dar es Salaam community.</p>
     </div>
