@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             VALUES 
             ('$booking_id', '$amount', '$payment_method', '$transaction_ref', 'completed')";
 
-    if (mysqli_query($conn, $sql)) {
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
 
         mysqli_query($conn, "UPDATE bookings SET booking_status='confirmed' WHERE booking_id='$booking_id'");
 
@@ -27,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
 
     } else {
-
-        header('Location: payment.php?booking_id=' . $booking_id . '&error=Payment failed');
+        $mysql_error = mysqli_error($conn);
+        header('Location: payment.php?booking_id=' . $booking_id . '&error=' . urlencode('Database error: ' . $mysql_error));
         exit();
     }
 }

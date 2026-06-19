@@ -67,6 +67,10 @@ $already_paid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM payments W
   <div class="login-card">
     <h2>Complete Payment</h2>
 
+    <?php if (isset($_GET['error'])) { ?>
+      <p style="color:red;text-align:center;font-family:Arial,sans-serif;font-size:13px;"><?php echo htmlspecialchars($_GET['error']); ?></p>
+    <?php } ?>
+
     <?php if ($already_paid) { ?>
       <p class="login-sub">This booking has already been paid for and confirmed.</p>
       <div class="summary">
