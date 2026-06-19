@@ -244,6 +244,25 @@ if ($action == 'delete_customer') {
     exit();
 }
 
+// CONFIRM PAYMENT (Snippe manual confirmation)
+if ($action == 'confirm_payment') {
+    $booking_id = $_POST['booking_id'];
+
+    mysqli_query($conn, "UPDATE payments SET payment_status='completed' WHERE booking_id='$booking_id'");
+    mysqli_query($conn, "UPDATE bookings SET booking_status='confirmed' WHERE booking_id='$booking_id'");
+
+    $bq = mysqli_query($conn, "SELECT * FROM bookings WHERE booking_id='$booking_id'");
+    $b = mysqli_fetch_assoc($bq);
+    if (!empty($b['room_id'])) {
+        mysqli_query($conn, "UPDATE rooms SET status='booked' WHERE room_id='{$b['room_id']}'");
+    } elseif (!empty($b['room_name'])) {
+        mysqli_query($conn, "UPDATE rooms SET status='booked' WHERE room_name='{$b['room_name']}'");
+    }
+
+    header('Location: manage_bookings.php?msg=Payment confirmed and booking activated#bookings');
+    exit();
+}
+
 header('Location: admin.php?error=Invalid action');
 exit();
 ?>

@@ -56,7 +56,8 @@ function getRoomImage($image, $room_type) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deluxe Rooms - Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/room-detail.css">
+  <link rel="stylesheet" href="css/rooms-shared.css">
+  <link rel="stylesheet" href="css/deluxe-room.css">
   <script>if (!sessionStorage.getItem('hms_logged_in')) { window.location.href = 'logout.php'; }</script>
 </head>
 <body>

@@ -31,7 +31,7 @@ $bookings = mysqli_query($conn, "SELECT * FROM bookings ORDER BY booking_id DESC
                 <tr><th>ID</th><th>Guest</th><th>Email</th><th>Room</th><th>Check In</th><th>Check Out</th><th>Status</th><th>Action</th></tr>
                 <?php while($booking = mysqli_fetch_assoc($bookings)) { ?>
                 <tr>
-                    <form action="admin_process.php" method="POST">
+                    <form action="admin_process.php" method="POST" style="display:contents;">
                         <td><?php echo $booking['booking_id']; ?><input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>"></td>
                         <td><?php echo $booking['guest_name']; ?></td>
                         <td><?php echo $booking['guest_email']; ?></td>
@@ -50,8 +50,14 @@ $bookings = mysqli_query($conn, "SELECT * FROM bookings ORDER BY booking_id DESC
                         <td>
                             <button name="action" value="update_booking">Update</button>
                             <button class="delete" name="action" value="delete_booking" onclick="return confirm('Delete this booking?')">Delete</button>
-                        </td>
                     </form>
+                            <?php if ($booking['booking_status'] == 'payment_failed') { ?>
+                            <form action="admin_process.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="booking_id" value="<?php echo $booking['booking_id']; ?>">
+                                <button name="action" value="confirm_payment" style="background:#2563eb;color:white;" onclick="return confirm('Confirm payment for this booking? Room will be marked as booked.')">Confirm Payment</button>
+                            </form>
+                            <?php } ?>
+                        </td>
                 </tr>
                 <?php } ?>
             </table>
