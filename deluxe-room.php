@@ -58,7 +58,6 @@ function getRoomImage($image, $room_type) {
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/rooms-shared.css">
   <link rel="stylesheet" href="css/deluxe-room.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script>if (!sessionStorage.getItem('hms_logged_in')) { window.location.href = 'logout.php'; }</script>
 </head>
 <body>
@@ -165,13 +164,13 @@ function getRoomImage($image, $room_type) {
 
                         <div class="room-amenities">
 
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span>📶 WiFi</span>
 
-                            <span><i class="fas fa-leaf"></i> Terrace</span>
+                            <span>🌿 Terrace</span>
 
-                            <span><i class="fas fa-tv"></i> TV</span>
+                            <span>📺 TV</span>
 
-                            <span><i class="fas fa-egg"></i> Breakfast</span>
+                            <span>🍳 Breakfast</span>
 
                         </div>
 

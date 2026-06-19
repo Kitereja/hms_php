@@ -6,7 +6,6 @@
   <title>Login - Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     .pwd-wrapper { position:relative; display:flex; align-items:center; }
     .pwd-wrapper input { width:100%; padding-right:40px !important; }
@@ -61,7 +60,7 @@
           <label>Password</label>
           <div class="pwd-wrapper">
             <input type="password" name="password" id="loginPassword" placeholder="Enter your password" required>
-            <span class="pwd-toggle" onclick="togglePwd('loginPassword', this)"><i class="fas fa-eye"></i></span>
+            <span class="pwd-toggle" onclick="togglePwd('loginPassword', this)">👁</span>
           </div>
         </div>
         <button class="btn-login" type="submit">Login</button>
@@ -85,20 +84,20 @@
           <label>Password</label>
           <div class="pwd-wrapper">
             <input type="password" name="password" id="signupPassword" placeholder="Create a password" required oninput="validatePassword()">
-            <span class="pwd-toggle" onclick="togglePwd('signupPassword', this)"><i class="fas fa-eye"></i></span>
+            <span class="pwd-toggle" onclick="togglePwd('signupPassword', this)">👁</span>
           </div>
           <div id="passwordReqs" style="font-size:12px;margin-top:6px;color:#888;font-family:Arial,sans-serif;">
-            <div id="req-upper"><i class="far fa-square"></i> Uppercase letter</div>
-            <div id="req-lower"><i class="far fa-square"></i> Lowercase letter</div>
-            <div id="req-number"><i class="far fa-square"></i> Number</div>
-            <div id="req-special"><i class="far fa-square"></i> Special character (!@#$%^&amp;*)</div>
+            <div id="req-upper">⬜ Uppercase letter</div>
+            <div id="req-lower">⬜ Lowercase letter</div>
+            <div id="req-number">⬜ Number</div>
+            <div id="req-special">⬜ Special character (!@#$%^&amp;*)</div>
           </div>
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
           <div class="pwd-wrapper">
             <input type="password" name="confirm_password" id="confirmPassword" placeholder="Repeat password" required>
-            <span class="pwd-toggle" onclick="togglePwd('confirmPassword', this)"><i class="fas fa-eye"></i></span>
+            <span class="pwd-toggle" onclick="togglePwd('confirmPassword', this)">👁</span>
           </div>
         </div>
         <button class="btn-login" type="submit" id="signupBtn">Create Account</button>
@@ -119,8 +118,8 @@ function showTab(id, btn) {
 
 function togglePwd(id, el) {
   var input = document.getElementById(id);
-  if (input.type === 'password') { input.type = 'text'; el.innerHTML = '<i class=\"fas fa-eye-slash\"></i>'; }
-  else { input.type = 'password'; el.innerHTML = '<i class=\"fas fa-eye\"></i>'; }
+  if (input.type === 'password') { input.type = 'text'; el.textContent = '👁‍🗨'; }
+  else { input.type = 'password'; el.textContent = '👁'; }
 }
 
 function validatePassword() {
@@ -134,7 +133,7 @@ function validatePassword() {
   var allValid = true;
   for (var key in checks) {
     var el = document.getElementById('req-' + key);
-    if (checks[key]) { el.innerHTML = '<i class=\"fas fa-check-circle\"></i> ' + el.textContent.trim(); } else { el.innerHTML = '<i class=\"far fa-square\"></i> ' + el.textContent.trim(); allValid = false; }
+    if (checks[key]) { el.innerHTML = '✅ ' + el.textContent.slice(2); } else { el.innerHTML = '⬜ ' + el.textContent.slice(2); allValid = false; }
   }
 }
 

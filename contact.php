@@ -6,7 +6,6 @@
   <title>Contact - Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -38,22 +37,22 @@
   <!-- INFO CARDS -->
   <div class="contact-info">
     <div class="info-card">
-      <div class="info-icon"><i class="fas fa-envelope"></i></div>
+      <div class="info-icon">📧</div>
       <h3>Email</h3>
       <p>hoteldemag@gmail.com</p>
     </div>
     <div class="info-card">
-      <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+      <div class="info-icon">📞</div>
       <h3>Phone</h3>
       <p><a href="https://wa.me/255764966568" target="_blank" style="color:#222;text-decoration:none;">+255 764 966 568</a></p>
     </div>
     <div class="info-card">
-      <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="info-icon">📍</div>
       <h3>Address</h3>
       <p>Dar es Salaam, Tanzania</p>
     </div>
     <div class="info-card">
-      <div class="info-icon"><i class="fas fa-clock"></i></div>
+      <div class="info-icon">🕐</div>
       <h3>Hours</h3>
       <p>Reception: 24/7</p>
     </div>

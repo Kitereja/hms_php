@@ -23,7 +23,6 @@ if (!empty($token)) {
   <title>Reset Password - Hotel De Mag</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -58,10 +57,10 @@ if (!empty($token)) {
           <label>New Password</label>
           <input type="password" name="password" id="resetPassword" placeholder="Enter new password" required oninput="validatePassword()">
           <div id="passwordReqs" style="font-size:12px;margin-top:6px;color:#888;font-family:Arial,sans-serif;">
-            <div id="req-upper"><i class="far fa-square"></i> Uppercase letter</div>
-            <div id="req-lower"><i class="far fa-square"></i> Lowercase letter</div>
-            <div id="req-number"><i class="far fa-square"></i> Number</div>
-            <div id="req-special"><i class="far fa-square"></i> Special character (!@#$%^&amp;*)</div>
+            <div id="req-upper">⬜ Uppercase letter</div>
+            <div id="req-lower">⬜ Lowercase letter</div>
+            <div id="req-number">⬜ Number</div>
+            <div id="req-special">⬜ Special character (!@#$%^&amp;*)</div>
           </div>
         </div>
         <div class="form-group">
@@ -127,7 +126,7 @@ function validatePassword() {
   var allValid = true;
   for (var key in checks) {
     var el = document.getElementById('req-' + key);
-    if (checks[key]) { el.innerHTML = '<i class=\"fas fa-check-circle\"></i> ' + el.textContent.trim(); } else { el.innerHTML = '<i class=\"far fa-square\"></i> ' + el.textContent.trim(); allValid = false; }
+    if (checks[key]) { el.innerHTML = '✅ ' + el.textContent.slice(2); } else { el.innerHTML = '⬜ ' + el.textContent.slice(2); allValid = false; }
   }
 }
 
